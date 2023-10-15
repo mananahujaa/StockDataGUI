@@ -1,8 +1,14 @@
+
+#include <sstream>
+using namespace System;
+
+
 ref class CandleStick
 {
 public:
 	static array<System::String^>^ customDelimiters = { ",", " ", "\"" };
 	static System::String^ customDateFormat = "MMM DD, YYYY";
+    static String^ referenceString = "Ticker,Period,Date,Open,High,Low,Close,Volume";
 
 public:
     // Properties to store information about the candlestick data
@@ -31,6 +37,10 @@ public:
     // Volume (optional, if applicable to your data)
     property float volume;
 
+
+    //Count of Candlesticks
+    property int count;
+
     // Constructor that parses a line of data
     CandleStick(System::String^ line) {
         // Split the input string
@@ -49,6 +59,7 @@ public:
         low = float::Parse(parts[7]);
         close = float::Parse(parts[8]);
         volume = float::Parse(parts[9]);
+ 
     }
 
     // Copy constructor
@@ -61,6 +72,8 @@ public:
         ticker = cs->ticker;
         period = cs->period;
         date = cs->date;
+       
+
     }
 
 };

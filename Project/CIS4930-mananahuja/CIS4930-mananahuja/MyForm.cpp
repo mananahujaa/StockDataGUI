@@ -1,4 +1,7 @@
 #include "MyForm.h"
+#include "candleStick.h"
+
+
 
 using namespace System;
 using namespace System::Windows::Forms;
